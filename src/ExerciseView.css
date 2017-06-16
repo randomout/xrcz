@@ -1,3 +1,21 @@
 .exercise-view {
-    flex-grow: 3;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black
 }
+
+.exercise-header {
+    padding: 5px;
+    display: flex;
+    Background: #c5c5c5;
+}
+
+.exercise-name {
+    flex-grow: 3; 
+}
+
+.exercise-amount {
+    padding: 5px;
+}
+

@@ -19,6 +19,13 @@
     flex-direction: row;
 }
 
+.App-details {
+    flex-grow: 3;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
 .App-intro {
   font-size: large;
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Exercise.css';
+
 const Exercise = ({id, name, date, amount}) => (
   <div className="exercise">
     <div className="exercise-name">

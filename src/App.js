@@ -14,7 +14,9 @@ class App extends Component {
         </div>
         <div className="App-view">
           <ExerciseHistory />
-          <ExerciseView />
+          <div className="App-details">
+            <ExerciseView />
+          </div>
         </div>
       </div>
     );
