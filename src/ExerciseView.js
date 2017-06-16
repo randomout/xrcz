@@ -7,14 +7,14 @@ const ExerciseView = ({selected}) => (
   <div className="exercise-view">
     <div className="exercise-header">
       <div className="exercise-name">
-        {selected.name}
+        {selected !== null ? selected.name : ''}
       </div>
       <div className="exercise-date">
-        {selected.date}
+        {selected !== null ? selected.date : ''}
       </div>
     </div>
     <div className="exercise-amount">
-      {selected.amount} reps
+      {selected != null ? selected.amount : ''} reps
     </div>
   </div>
 );
