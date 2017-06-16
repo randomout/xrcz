@@ -12,8 +12,10 @@ class App extends Component {
         <div className="App-header">
           <h2>Exercise Tracker</h2>
         </div>
-        <ExerciseHistory />
-        <ExerciseView />
+        <div className="App-view">
+          <ExerciseHistory />
+          <ExerciseView />
+        </div>
       </div>
     );
   }

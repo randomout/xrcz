@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import Exercise from './Exercise';
 
+import './ExerciseHistory.css';
+
 const ExerciseHistory = ({ exercises }) => (
   <div className="exercise-history">
     <ul>

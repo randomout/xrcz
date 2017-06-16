@@ -14,6 +14,11 @@
   color: white;
 }
 
+.App-view {
+    display: flex;
+    flex-direction: row;
+}
+
 .App-intro {
   font-size: large;
 }

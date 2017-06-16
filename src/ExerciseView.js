@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './ExerciseView.css';
+
 class ExerciseView extends Component {
   render() {
     return (
