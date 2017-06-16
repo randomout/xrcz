@@ -1,25 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import './ExerciseView.css';
 
-class ExerciseView extends Component {
-  render() {
-    return (
-      <div className="exercise-view">
-        <div className="exercise-header">
-          <div className="exercise-name">
-            Name goes here...
-          </div>
-          <div className="exercise-date">
-            99/99/99
-          </div>
-        </div>
-        <div className="exercise-amount">
-          99 reps
-        </div>
+const ExerciseView = ({selected}) => (
+  <div className="exercise-view">
+    <div className="exercise-header">
+      <div className="exercise-name">
+        {selected.name}
       </div>
-    );
-  }
-}
+      <div className="exercise-date">
+        {selected.date}
+      </div>
+    </div>
+    <div className="exercise-amount">
+      {selected.amount} reps
+    </div>
+  </div>
+);
 
-export default ExerciseView;
+const mapStateToProps = state => {
+  return {
+    selected: state.selected
+  };
+};
+
+export default connect(mapStateToProps)(ExerciseView);

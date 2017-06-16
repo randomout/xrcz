@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './Exercise.css';
 
-const Exercise = ({id, name, date, amount}) => (
-  <div className="exercise">
+const Exercise = ({id, name, date, amount, onClick}) => (
+  <div className="exercise" onClick={onClick}>
     <div className="exercise-name">
       {name}
     </div>

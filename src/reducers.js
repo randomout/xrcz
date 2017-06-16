@@ -1,6 +1,14 @@
 import { combineReducers } from 'redux';
 
-const selected = (state = null, action) => {
+const dummy = {
+  id: -1,
+  name: '',
+  date: Date.now(),
+  amount: 0,
+}
+
+const selected = (state = dummy, action) => {
+  console.log('action: ', action);
   switch(action.type) {
     case 'SELECT_EXERCISE':
       return action.exercise;
