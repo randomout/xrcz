@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 import ExerciseHistory from './ExerciseHistory';
 import ExerciseView from './ExerciseView';
+
+
 
 import './App.css';
 
@@ -15,7 +19,7 @@ class App extends Component {
         <div className="App-view">
           <ExerciseHistory />
           <div className="App-details">
-            <ExerciseView />
+            {this.props.selected !== null ? <ExerciseView /> : ''}
           </div>
         </div>
       </div>
@@ -23,4 +27,10 @@ class App extends Component {
   }
 }
 
-export default App;
+var mapStateToProps = state => {
+  return {
+    selected: state.selected
+  };
+};
+
+export default connect(mapStateToProps)(App);
