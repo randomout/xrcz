@@ -1,0 +1,10 @@
+import React, { Component } from 'react';
+
+class Exercise extends Comonent {
+  render() {
+    return (
+      <div className="exercise">
+      </div>
+    );
+  }
+}

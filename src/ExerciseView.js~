@@ -1,0 +1,12 @@
+import React, { Component } from 'react';
+
+class ExerciseView extends Component {
+  render() {
+    return (
+      <div className="exercise-view">
+      </div>
+    );
+  }
+}
+
+export default ExerciseView;

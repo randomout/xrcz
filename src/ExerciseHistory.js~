@@ -1,0 +1,6 @@
+import React from 'react';
+
+class ExerciseHistory extends Component {
+}
+
+export default ExerciseHistory;
