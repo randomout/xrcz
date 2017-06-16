@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-class Exercise extends Component {
-  render() {
-    return (
-      <div className="exercise">
-      </div>
-    );
-  }
-}
+const Exercise = ({id, name, date, amount}) => (
+  <div className="exercise">
+    <div className="exercise-name">
+      {name}
+    </div>
+    <div className="exercise-amount">
+      {amount}
+    </div>
+  </div>
+);
 
 export default Exercise;

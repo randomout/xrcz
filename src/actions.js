@@ -1,7 +1,7 @@
 // app actions
-export const select = id => {
+export const select = exercise => {
   return {
     type: 'SELECT',
-    id
+    exercise
   };
 };
