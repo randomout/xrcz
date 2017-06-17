@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+import { add } from './actions';
 
 import ExerciseList from './ExerciseList';
 
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Exercises</h2>
-        </div>
-        <div className="App-view">
-          <ExerciseList />
-        </div>
-      </div>
-    );
-  }
-}
+const App = ({ onAdd }) => (
+  <div className="app">
+    <div className="app-header">
+      <h2>Exercises</h2>
+    </div>
+    <div className="app-controls">
+      <button onClick={onAdd} >Add</button>
+    </div>
+    <div className="app-view">
+      <ExerciseList />
+    </div>
+  </div>
+);
 
 var mapStateToProps = state => {
   return {
@@ -27,4 +27,12 @@ var mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    onAdd: ()  => {
+      dispatch(add())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

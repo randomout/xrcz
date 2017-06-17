@@ -1,21 +1,37 @@
 .exercise {
     display: flex;
+    flex-direction: column;
     border: 1px solid #e5e5e5;
-    justify-content: flex-start;
-    padding: 5px;
 }
 
-.exercise:hover {
+.exercise-header:hover {
     background: #e5e5e5;
     cursor: pointer;
 }
 
-.exercise-name {
-    flex-grow: 3;
-    text-align: left;
-    padding-left: 10px;
+.exercise.selected  .exercise-details {
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
+
+.exercise.selected .exercise-header {
+    background: #e5e5e5;
+}
+
+.exercise-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 5px;
+}
+
+.exercise-details {
+    height: 0;
+    overflow: hidden;
+}
+
+
 
 .exercise-amount {
     padding-right: 5px;
 }
+ 

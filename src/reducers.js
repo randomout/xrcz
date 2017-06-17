@@ -3,7 +3,11 @@ import { combineReducers } from 'redux';
 const selected = (state = null, action) => {
   switch(action.type) {
     case 'SELECT_EXERCISE':
-      return action.exercise;
+      if(state && state === action.id) {
+        return null;
+      } else {
+        return action.id;
+      }
     default:
       return state;
   }
@@ -12,13 +16,13 @@ const selected = (state = null, action) => {
 const defaultData = [
   {
     id: 1,
-    name: 'foo',
+    name: 'Sit-ups',
     date: Date.now(),
     amount: 10,
   },
   {
     id: 2,
-    name: 'bar',
+    name: 'Push-ups',
     date: Date.now(),
     amount: 20,
   }
@@ -26,8 +30,6 @@ const defaultData = [
 
 
 const exercises = (state = defaultData, action) => {
-  console.log('action', action);
-  
   switch(action.type) {
     case 'ADD_EXERCISE':
       return [

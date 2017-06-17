@@ -2,18 +2,18 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { select, add } from './actions';
+import { select } from './actions';
 
 import Exercise from './Exercise';
 
 import './ExerciseList.css';
 
-const ExerciseList = ({ exercises, onSelect, onAdd }) => (
+const ExerciseList = ({ exercises, onSelect, onAdd, selected }) => (
   <div className="exercise-list">
   <ul>
-    {exercises.map(exercise => (<Exercise key={exercise.id} { ...exercise } onClick={() => onSelect(exercise)} /> ))}
+    {exercises.map(exercise => (<Exercise key={exercise.id} { ...exercise } selected={selected} onClick={() => onSelect(exercise)} /> ))}
   </ul>
-  <button onClick={onAdd} >Add</button>
+
   
   </div>
 );
@@ -21,17 +21,15 @@ const ExerciseList = ({ exercises, onSelect, onAdd }) => (
 const mapStateToProps = state => {
   return {
     exercises: state.exercises,
+    selected: state.selected,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onSelect: exercise => {
-      dispatch(select(exercise))
+      dispatch(select(exercise.id))
     },
-    onAdd: ()  => {
-      dispatch(add())
-    }
   }
 }
 
