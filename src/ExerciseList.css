@@ -1,0 +1,9 @@
+.exercise-list {
+    flex-grow: 1;
+    border: 1px solid black;
+}
+
+ul {
+    padding: 5px;
+}
+

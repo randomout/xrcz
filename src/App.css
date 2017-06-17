@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
 }
 
 .App-logo {
@@ -9,21 +13,8 @@
 
 .App-header {
   background-color: #222;
-  height: 75px;
   padding: 20px;
   color: white;
-}
-
-.App-view {
-    display: flex;
-    flex-direction: row;
-}
-
-.App-details {
-    flex-grow: 3;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
 }
 
 .App-intro {

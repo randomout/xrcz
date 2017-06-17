@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import ExerciseHistory from './ExerciseHistory';
-import ExerciseView from './ExerciseView';
-
-
+import ExerciseList from './ExerciseList';
 
 import './App.css';
 
@@ -14,13 +11,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Exercise Tracker</h2>
+          <h2>Exercises</h2>
         </div>
         <div className="App-view">
-          <ExerciseHistory />
-          <div className="App-details">
-            {this.props.selected !== null ? <ExerciseView /> : ''}
-          </div>
+          <ExerciseList />
         </div>
       </div>
     );
