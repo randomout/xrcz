@@ -1,27 +1,44 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
-
 import { select } from './actions';
 
 import Exercise from './Exercise';
 
 import './ExerciseList.css';
 
-const ExerciseList = ({ exercises, onSelect, onAdd, selected }) => (
-  <div className="exercise-list">
-  <ul>
-    {exercises.map(exercise => (<Exercise key={exercise.id} { ...exercise } selected={selected} onClick={() => onSelect(exercise)} /> ))}
-  </ul>
+const ExerciseList = ({ exercises, onSelect, onAdd, selected, editing }) => {
+  const list = exercises.map(
+    exercise => {
+      const isSelected = exercise.id === selected;
+      const isEditing = exercise.id === editing;
+      
+      return (
+        <Exercise key={exercise.id}
+                  { ...exercise }
+                  selected={isSelected}
+                  editing={isEditing}
+                  onSelect={() => onSelect(exercise)}
+        />
+      );
+    }
+  )
 
-  
-  </div>
-);
+  return (
+    <div className="exercise-list">
+      <ul>
+        {list}
+      </ul>
+
+      
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {
     exercises: state.exercises,
     selected: state.selected,
+    editing: state.editing,
   }
 }
 

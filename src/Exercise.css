@@ -22,6 +22,17 @@
 .exercise-header {
     border-bottom: 1px solid #e5e5e5;
     padding: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.exercise-name {
+    flex-grow: 3;
+    margin-left: 32px;
+}
+
+.exercise-edit {
+    min-width: 32px;
 }
 
 .exercise-details {
