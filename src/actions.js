@@ -5,3 +5,9 @@ export const select = exercise => {
     exercise
   };
 };
+
+export const add = () => {
+  return {
+    type: 'ADD_EXERCISE',
+  };
+};

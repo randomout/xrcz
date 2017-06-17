@@ -2,20 +2,19 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { select } from './actions';
+import { select, add } from './actions';
 
 import Exercise from './Exercise';
 
 import './ExerciseHistory.css';
 
-const ExerciseHistory = ({ exercises, onSelect }) => (
+const ExerciseHistory = ({ exercises, onSelect, onAdd }) => (
   <div className="exercise-history">
-    <ul>
-      {exercises.map(exercise => (
-        <Exercise key={exercise.id} { ...exercise } onClick={() => onSelect(exercise)} />
-      ))}
-    </ul>
-
+  <ul>
+    {exercises.map(exercise => (<Exercise key={exercise.id} { ...exercise } onClick={() => onSelect(exercise)} /> ))}
+  </ul>
+  <button onClick={onAdd} >Add</button>
+  
   </div>
 );
 
@@ -29,6 +28,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onSelect: exercise => {
       dispatch(select(exercise))
+    },
+    onAdd: ()  => {
+      dispatch(add())
     }
   }
 }

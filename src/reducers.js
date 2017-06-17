@@ -26,11 +26,18 @@ const defaultData = [
 
 
 const exercises = (state = defaultData, action) => {
+  console.log('action', action);
+  
   switch(action.type) {
     case 'ADD_EXERCISE':
       return [
         ...state,
-        action.exercise,
+        {
+          id: state.length + 1,
+          name: 'new',
+          date: Date.now(),
+          amount: 0,
+        },
       ]
     default:
       return state;

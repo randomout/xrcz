@@ -1,6 +1,7 @@
 .exercise-history {
     flex-grow: 1;
     border: 1px solid black;
+    max-width: 250px;
 }
 
 ul {
