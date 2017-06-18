@@ -17,7 +17,8 @@ const Exercise = ({id, name, date, amount, selected, editing, onSelect, onEdit})
             {editing ? <input ref={node => {name = node}} defaultValue={name} /> : name}
           </div>
           <div className="exercise-edit">
-            {selected ? <button onClick={onEdit}>Edit</button> : ''}
+            {selected && !editing ? <button onClick={onEdit}>Edit</button> : ''}
+            {editing ? <button >Done</button> : ''}
           </div>
         </div>
 
