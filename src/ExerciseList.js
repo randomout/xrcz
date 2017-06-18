@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { select, selection, edit } from './actions';
+import { select, selection, edit, updateExercise } from './actions';
 
 import Exercise from './Exercise';
 
 import './ExerciseList.css';
 
-
-
-const ExerciseList = ({ exercises, onSelect, onEdit, selected, editing }) => {
+const ExerciseList = ({ exercises, onSelect, onEdit, onUpdate, selected, editing, update }) => {
   const list = exercises.map(
     exercise => {
       const isSelected = exercise.id === selected;
@@ -24,6 +22,7 @@ const ExerciseList = ({ exercises, onSelect, onEdit, selected, editing }) => {
                       e.preventDefault();
                       onEdit(exercise);
                   }}
+                  onUpdate={onUpdate}
         />
       );
     }
@@ -53,6 +52,9 @@ const mapDispatchToProps = dispatch => {
     },
     onEdit: exercise => {
       dispatch(edit(exercise.id))
+    },
+    onUpdate: exercise => {
+      dispatch(updateExercise(exercise));
     }
   }
 }

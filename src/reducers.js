@@ -17,6 +17,9 @@ const selected = (state = null, action) => {
 const editing = (state = null, action) => {
   switch(action.type) {
     case 'EDIT_EXERCISE':
+      if(state === action.id)
+        return null;
+      
       return action.id
     default:
       return state;
@@ -41,6 +44,15 @@ const defaultData = [
 
 const exercises = (state = defaultData, action) => {
   switch(action.type) {
+    case 'UPDATE_EXERCISE':
+      const clone = state.map((item) => {
+        if( item.id === action.exercise.id)
+          return action.exercise;
+
+        return {...item};
+      })
+
+      return clone;
     case 'ADD_EXERCISE':
       return [
         ...state,

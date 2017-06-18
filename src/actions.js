@@ -14,10 +14,22 @@ export const selection = (selection) => (dispatch, getState) => {
   }
 }
 
+export const updateExercise = (exercise) => (dispatch, getState) => {
+  dispatch(update(exercise));
+  dispatch(edit(exercise.id))
+}
+
 export const edit = id => {
   return {
     type: 'EDIT_EXERCISE',
     id
+  }
+}
+
+export const update = exercise => {
+  return {
+    type: 'UPDATE_EXERCISE',
+    exercise
   }
 }
 
