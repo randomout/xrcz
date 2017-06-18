@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+
 const selected = (state = null, action) => {
   switch(action.type) {
     case 'SELECT_EXERCISE':

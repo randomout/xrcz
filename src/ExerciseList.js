@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { select, edit } from './actions';
+import { select, selection, edit } from './actions';
 
 import Exercise from './Exercise';
 
@@ -49,7 +49,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSelect: exercise => {
-      dispatch(select(exercise.id))
+      dispatch(selection(exercise.id))
     },
     onEdit: exercise => {
       dispatch(edit(exercise.id))
