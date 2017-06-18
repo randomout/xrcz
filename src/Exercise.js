@@ -11,18 +11,20 @@ const Exercise = ({id, name, date, amount, selected, editing, onSelect, onEdit})
 
   return (
     <div className={styleClasses} onClick={onSelect}>
-      <div className="exercise-header">
-        <div className="exercise-name">
-          {name}
+      <form >
+        <div className="exercise-header">
+          <div className="exercise-name">
+            {editing ? <input ref={node => {name = node}} defaultValue={name} /> : name}
+          </div>
+          <div className="exercise-edit">
+            {selected ? <button onClick={onEdit}>Edit</button> : ''}
+          </div>
         </div>
-        <div className="exercise-edit">
-          {selected ? <button>Edit</button> : ''}
-        </div>
-      </div>
 
-      <div className="exercise-details">
-        details here...
-      </div>
+        <div className="exercise-details">
+          details here...
+        </div>
+      </form>
     </div>
   );
 };

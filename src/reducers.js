@@ -13,6 +13,15 @@ const selected = (state = null, action) => {
   }
 };
 
+const editing = (state = null, action) => {
+  switch(action.type) {
+    case 'EDIT_EXERCISE':
+      return action.id
+    default:
+      return state;
+  }
+}
+
 const defaultData = [
   {
     id: 1,
@@ -48,5 +57,6 @@ const exercises = (state = defaultData, action) => {
 
 export default combineReducers({
   selected,
+  editing, 
   exercises
 });
