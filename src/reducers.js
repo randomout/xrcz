@@ -34,7 +34,7 @@ const exercises = (state = defaultData, action) => {
   switch(action.type) {
     case 'RECEIVE_EXERCISES':
       return action.exercises;
-    case 'UPDATE_EXERCISE':
+    case 'UPDATED_EXERCISE':
       const clone = state.map((item) => {
         if( item.id === action.exercise.id)
           return action.exercise;
