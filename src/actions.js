@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch';
+
 // app actions
 export const select = id => {
   return {
@@ -17,6 +19,27 @@ export const selection = (selection) => (dispatch, getState) => {
 export const updateExercise = (exercise) => (dispatch, getState) => {
   dispatch(update(exercise));
   dispatch(edit(exercise.id))
+}
+
+export const requestExercises = () => {
+  return {
+    type: 'REQUEST_EXERCISES'
+  }
+}
+
+export const receiveExercises = (exercises) => {
+  return {
+    type: 'RECEIVE_EXERCISES',
+    exercises
+  }
+}
+
+export const fetchExercises = () => (dispatch) => {
+  dispatch(requestExercises());
+
+  return fetch('/exercises')
+    .then(response => response.json(), error => console.log('error!', error))
+    .then(data => dispatch(receiveExercises(data)))
 }
 
 export const edit = id => {

@@ -27,23 +27,13 @@ const editing = (state = null, action) => {
 }
 
 const defaultData = [
-  {
-    id: 1,
-    name: 'Sit-ups',
-    date: Date.now(),
-    amount: 10,
-  },
-  {
-    id: 2,
-    name: 'Push-ups',
-    date: Date.now(),
-    amount: 20,
-  }
 ];
 
 
 const exercises = (state = defaultData, action) => {
   switch(action.type) {
+    case 'RECEIVE_EXERCISES':
+      return action.exercises;
     case 'UPDATE_EXERCISE':
       const clone = state.map((item) => {
         if( item.id === action.exercise.id)
@@ -63,6 +53,7 @@ const exercises = (state = defaultData, action) => {
           amount: 0,
         },
       ]
+      
     default:
       return state;
   }

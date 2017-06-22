@@ -4,9 +4,23 @@ const router = require('koa-router');
 const app = new koa();
 const _ = new router();
 
-_.get('/test', function(ctx){
-  ctx.body = "test successful!";
-  console.log('test', ctx);
+const defaultData = [
+  {
+    id: 1,
+    name: 'Sit-ups',
+    date: Date.now(),
+    amount: 10,
+  },
+  {
+    id: 2,
+    name: 'Push-ups',
+    date: Date.now(),
+    amount: 20,
+  }
+];
+
+_.get('/exercises', function(ctx){
+  ctx.body = defaultData;
 });
 
 app.use(_.routes()).use(_.allowedMethods());
