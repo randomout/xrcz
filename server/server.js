@@ -1,9 +1,8 @@
 const koa = require('koa');
-const router = require('koa-router');
+const router = require('koa-router')();
 const koabody = require('koa-body')();
 
 const app = new koa();
-const _ = new router();
 
 // temporary until we get a real data store in place...
 let data = [
@@ -22,12 +21,12 @@ let data = [
 ];
 
 // gets all exercises
-_.get('/exercises',  (ctx) => {
+router.get('/exercises',  (ctx) => {
   ctx.body = data;
 });
 
 // update an exercise
-_.post('/exercise/:id', koabody, (ctx) =>  {
+router.post('/exercise/:id', koabody, (ctx) =>  {
   const id = ctx.params.id;
   const exercise = ctx.request.body;
 
@@ -39,16 +38,14 @@ _.post('/exercise/:id', koabody, (ctx) =>  {
     return Object.assign({}, item);
   });
 
-  console.log('data: ', data);
-
   ctx.body = exercise;
 });
 
 // add a new exercise
-_.put('/exercise',  (ctx) => {
+router.put('/exercise',  (ctx) => {
 });
 
-app.use(_.routes()).use(_.allowedMethods());
+app.use(router.routes()).use(router.allowedMethods());
 
 app.on('error', err => {
   console.log(err);
