@@ -42,11 +42,21 @@ router.post('/exercise/:id', koabody, (ctx) =>  {
 });
 
 // add a new exercise
-router.put('/exercise',  (ctx) => {
+router.put('/exercise',  koabody, (ctx) => {
+  const exercise = ctx.request.body;
+  const id = {id: data.length + 1};
+
+  const newExercise = [exercise, id].reduce((target, source) => Object.assign(target, source));
+
+  data[data.length] = newExercise;
+
+  ctx.body = newExercise;
+  
 });
 
 app.use(router.routes()).use(router.allowedMethods());
 
+//TODO: better error handler
 app.on('error', err => {
   console.log(err);
 })

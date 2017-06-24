@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { add } from './actions';
+import { addExercise } from './actions';
 
 import ExerciseList from './ExerciseList';
 
@@ -30,7 +30,7 @@ var mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAdd: ()  => {
-      dispatch(add())
+      dispatch(addExercise())
     }
   }
 }

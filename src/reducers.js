@@ -26,11 +26,8 @@ const editing = (state = null, action) => {
   }
 }
 
-const defaultData = [
-];
 
-
-const exercises = (state = defaultData, action) => {
+const exercises = (state = [], action) => {
   switch(action.type) {
     case 'RECEIVE_EXERCISES':
       return action.exercises;
@@ -43,15 +40,10 @@ const exercises = (state = defaultData, action) => {
       })
 
       return clone;
-    case 'ADD_EXERCISE':
+    case 'ADDED_EXERCISE':
       return [
         ...state,
-        {
-          id: state.length + 1,
-          name: 'new',
-          date: Date.now(),
-          amount: 0,
-        },
+        action.exercise,
       ]
       
     default:
