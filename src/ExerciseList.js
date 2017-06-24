@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { select, selection, edit, updateExercise } from './actions';
+import { selection, edit, updateExercise } from './actions';
 
 import Exercise from './Exercise';
 
