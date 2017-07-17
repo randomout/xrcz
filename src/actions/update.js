@@ -19,7 +19,8 @@ export const updateExercise = (exercise) => (dispatch, getState) => {
   dispatch(updatingExercise());
 
   return fetch(`/exercise/${exercise.id}`,
-               { method: 'POST',
+               {
+                 method: 'POST',
                  headers: {
                    'Accept': 'application/json, text/plain, */*',
                    'Content-Type': 'application/json'

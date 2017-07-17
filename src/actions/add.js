@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-import { edit } from './index';
+import { edit, select } from './index';
 
 const defaultNew = {
   name: 'New Exercise',
@@ -35,6 +35,7 @@ export const addExercise = () => (dispatch, getState) => {
     .then(response => response.json(), error => console.log('error!', error))
     .then(exercise => {
       dispatch(addedExercise(exercise));
+      dispatch(select(exercise.id))
       dispatch(edit(exercise.id));
     } )
 
